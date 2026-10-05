@@ -1,0 +1,998 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F92D1A">
+<title>ÑAPA</title>
+<link rel="icon" type="image/png" href="fotos/favicon.png">
+<meta name="description" content="ÑAPA es la membresía de barrio para barberías y salones: carné digital, descuentos que se calculan solos, familia y amigos, y avisos de WhatsApp para que tus clientes fijos no se te vayan.">
+<link rel="icon" type="image/png" href="assets/ene-roja.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CO">
+<meta property="og:title" content="ÑAPA: que tus clientes fijos sigan siendo fijos">
+<meta property="og:description" content="La membresía de barrio para barberías y salones. Carné digital, descuentos que se calculan solos y avisos de WhatsApp.">
+<meta property="og:image" content="assets/og-napa.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Lilita+One&display=swap" rel="stylesheet">
+<script>document.documentElement.className+=' js'</script>
+<style>
+/* =====================================================================
+   ÑAPA · Landing de venta
+   Tipografías: Funtastic (títulos) + DM Sans (texto). Si Funtastic no está
+   en /assets/fonts/, los títulos usan Lilita One como reemplazo temporal.
+   ===================================================================== */
+@font-face{font-family:"Funtastic";src:url("assets/fonts/Funtastic.woff2") format("woff2"),url("assets/fonts/Funtastic.ttf") format("truetype");font-weight:400 900;font-display:swap}
+:root{
+  --red:#F92D1A;--red-d:#C21F10;--blue:#2E4C8C;--blue-d:#1F3566;--cream:#FFF3E1;--cream-d:#F7E3C3;
+  --white:#fff;--black:#000;--orange:#FF8E00;
+  --ok:#2f9e5b;--yel:#FFC21A;
+  --f-d:"Funtastic","Lilita One","Baloo 2",system-ui,sans-serif;
+  --f-t:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --r:22px;--sh:5px 5px 0 var(--black)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
+body{margin:0;font:400 17px/1.6 var(--f-t);color:var(--blue-d);background:var(--cream);overflow-x:hidden}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--f-d);font-weight:400;line-height:1.05;letter-spacing:.005em;margin:0 0 .5em;color:var(--blue)}
+h1{font-size:clamp(2.5rem,7.4vw,5rem)}
+h2{font-size:clamp(2rem,5vw,3.3rem)}
+h3{font-size:1.4rem;line-height:1.12}
+p{margin:0 0 1em}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+section{padding:92px 0;position:relative}
+.eyebrow{display:inline-block;font:700 .78rem/1 var(--f-t);letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.lead{font-size:1.2rem;max-width:56ch}
+.sub{font-size:.84rem;opacity:.85}
+.hl{background:var(--red);color:var(--cream);padding:0 .16em;border-radius:.14em;display:inline-block;transform:rotate(-1.5deg)}
+.hl-o{color:var(--orange)}
+
+/* botones: CTA principal siempre naranja */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:12px 26px;border-radius:999px;font:700 1.02rem/1 var(--f-t);text-decoration:none;border:3px solid var(--black);cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s}
+.btn-main{background:var(--orange);color:var(--black);box-shadow:4px 4px 0 var(--black)}
+.btn-main:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--black);background:#ffa11f}
+.btn-main:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--black)}
+.btn-alt{background:transparent;color:inherit;border-color:currentColor}
+.btn-alt:hover{background:rgba(46,76,140,.08)}
+.on-dark .btn-alt:hover{background:rgba(255,243,225,.12)}
+.btn-main svg,.btn img{width:20px;height:20px}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;align-items:center}
+
+/* ---------- header ---------- */
+header.nav{position:sticky;top:0;z-index:50;background:rgba(255,243,225,.94);backdrop-filter:blur(8px);border-bottom:3px solid var(--blue);padding-top:env(safe-area-inset-top)}
+.nav .wrap{display:flex;align-items:center;gap:18px;min-height:68px}
+.brand{display:flex;align-items:center;margin-right:auto}
+.brand img{height:78px;width:auto}
+.nav nav{display:flex;align-items:center;gap:6px}
+.nav nav a:not(.btn){font-weight:700;font-size:.95rem;text-decoration:none;padding:10px 12px;border-radius:999px;color:var(--blue)}
+.nav nav a:not(.btn):hover{background:var(--cream-d)}
+.nav .btn{min-height:44px;padding:8px 20px;font-size:.95rem}
+@media(max-width:900px){.nav nav a:not(.btn){display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding:56px 0 96px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:center}
+.hero h1{margin-bottom:.35em}
+.hero .lead{color:var(--blue-d)}
+.proof{display:flex;flex-wrap:wrap;gap:10px 22px;margin:30px 0 0;padding:0;list-style:none;font-weight:700;font-size:.92rem}
+.proof li{display:flex;align-items:center;gap:8px}
+.proof li::before{content:"";width:22px;height:22px;background:url(assets/icono-rayo.png) center/contain no-repeat}
+.stage{position:relative;padding:34px 0 34px;display:grid;place-items:center}
+.stage::before{content:"";position:absolute;inset:0 6% 0 6%;background:var(--red);border-radius:14px;box-shadow:12px 12px 0 var(--blue)}
+.stage::after{content:"";position:absolute;inset:0 6% 0 6%;background:url(assets/rayo-peine-crema.png) 112% 20%/62% no-repeat;opacity:.16;border-radius:14px;pointer-events:none}
+.phone{position:relative;z-index:2;width:100%;max-width:330px;background:var(--cream);border:8px solid var(--black);border-radius:36px;overflow:hidden;box-shadow:0 26px 50px rgba(0,0,0,.35);transform:rotate(2.5deg)}
+.phone-bar{background:var(--blue);color:var(--cream);padding:14px 18px;display:flex;align-items:center;gap:10px;font-weight:700}
+.phone-bar img{width:22px;height:auto}
+.phone-bar span:first-of-type{flex:1}
+.chip{background:var(--orange);color:var(--black);font-size:.68rem;font-weight:700;letter-spacing:.08em;padding:4px 10px;border-radius:99px}
+.phone-body{padding:6px 16px 16px}
+.phone label{display:block;font-size:.82rem;font-weight:700;margin:12px 0 5px;color:var(--blue)}
+.phone select{width:100%;min-height:48px;border:2.5px solid var(--blue);border-radius:14px;padding:0 12px;font:500 .95rem var(--f-t);background:var(--white);color:var(--blue-d);appearance:auto}
+.chk{display:flex!important;gap:10px;align-items:center;margin-top:12px!important;font-weight:500!important;font-size:.92rem!important;min-height:44px;color:var(--blue-d)!important}
+.chk input{width:24px;height:24px;accent-color:var(--blue);flex:none}
+.cobrar{margin-top:12px;background:var(--white);border:3px solid var(--blue);border-radius:18px;padding:14px;text-align:center}
+.cobrar small{display:block;color:var(--blue-d);font-size:.8rem;opacity:.8}
+.cobrar .monto{font:400 2.7rem/1.1 var(--f-d);color:var(--red)}
+.cobrar .ahorro{font-weight:700;color:var(--blue);min-height:1.5em}
+.phone .nota{font-size:.76rem;margin:10px 0 0;opacity:.75}
+.float{position:absolute;z-index:3;background:var(--white);border:3px solid var(--black);border-radius:18px;padding:12px 14px;box-shadow:4px 4px 0 var(--black);font-size:.82rem;line-height:1.35;max-width:210px}
+.float.wa{left:-6px;bottom:14px;background:#dcf8c6;border-radius:18px 18px 18px 4px;transform:rotate(-3deg)}
+.float.lvl{right:-4px;top:6px;display:flex;align-items:center;gap:10px;font-weight:700;transform:rotate(3deg)}
+.float.lvl img{width:26px}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.stage{margin-top:16px}.float.wa{left:0;bottom:2px;max-width:180px}.float.lvl{right:0;top:0}}
+
+/* ---------- marquesina ---------- */
+.marq{background:var(--blue);color:var(--cream);overflow:hidden;padding:18px 0;border-block:3px solid var(--black)}
+.marq-t{display:flex;width:max-content;animation:mq 38s linear infinite}
+.marq-t span{display:flex;align-items:center;gap:22px;padding-right:22px;font:400 1.35rem var(--f-d);white-space:nowrap}
+.marq-t img{width:20px}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marq-t{animation:none}html{scroll-behavior:auto}*{transition:none!important}}
+
+/* ---------- problema ---------- */
+.problema{background:var(--cream)}
+.head{max-width:760px;margin-bottom:46px}
+.grid3{display:grid;gap:22px;grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.grid3{grid-template-columns:1fr}}
+.pcard{background:var(--white);border:3px solid var(--blue);border-radius:var(--r);padding:28px;box-shadow:7px 7px 0 var(--blue)}
+.pcard .ic{width:60px;height:60px;border-radius:50%;background:var(--cream);border:3px solid var(--blue);display:grid;place-items:center;margin-bottom:18px}
+.pcard .ic img{width:30px;height:30px;object-fit:contain}
+.pcard p{margin:0}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
+@media(max-width:700px){.stats{grid-template-columns:1fr}}
+.stat{display:flex;align-items:center;gap:20px;background:var(--red);color:var(--cream);border-radius:var(--r);padding:22px 26px}
+.stat b{font:400 clamp(2.4rem,6vw,3.6rem)/1 var(--f-d);white-space:nowrap}
+.stat span{font-weight:700;font-size:1.05rem;line-height:1.3}
+.stat.b2{background:var(--blue)}
+
+/* ---------- ñapa (concepto) ---------- */
+.napa{background:var(--blue);color:var(--cream);overflow:hidden}
+.napa h2,.napa h3{color:var(--cream)}
+.napa .eyebrow{color:var(--orange)}
+.napa .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.bigene{position:relative;display:grid;place-items:center;min-height:360px}
+.bigene::before{content:"";position:absolute;inset:1% 22%;background:var(--cream);border-radius:var(--r)}
+.bigene img{position:relative;width:min(200px,50%);height:auto}
+.bigene .teeth{position:absolute;right:6%;bottom:-36px;width:48%;aspect-ratio:1;background:url(assets/peine-crema.png) center/contain no-repeat;opacity:.2}
+.napa p{font-size:1.18rem}
+.napa .quote{font:400 1.7rem/1.15 var(--f-d);color:var(--orange);margin-top:8px}
+@media(max-width:900px){.napa .wrap{grid-template-columns:1fr}.bigene{min-height:260px}}
+
+/* ---------- cómo funciona ---------- */
+.como{background:var(--cream)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;counter-reset:s;list-style:none;padding:0;margin:0}
+@media(max-width:960px){.steps{grid-template-columns:1fr;max-width:520px}}
+.steps>li{counter-increment:s;display:flex;flex-direction:column;gap:18px}
+.stepn{display:flex;align-items:center;gap:14px}
+.stepn::before{content:counter(s);width:52px;height:52px;border-radius:50%;background:var(--red);color:var(--cream);font:400 1.7rem var(--f-d);display:grid;place-items:center;flex:none;box-shadow:3px 3px 0 var(--black)}
+.stepn h3{margin:0}
+.steps p{margin:0}
+
+/* contenedor de captura (mock en HTML o imagen real) */
+.shot{position:relative;background:var(--white);border:3px solid var(--blue);border-radius:var(--r);overflow:hidden;box-shadow:7px 7px 0 var(--blue);display:flex;flex-direction:column}
+.shot>img{width:100%;height:100%;object-fit:cover}
+.shot.has-img{background:var(--cream)}
+.shot .mk-bar{background:var(--blue);color:var(--cream);font-weight:700;font-size:.85rem;padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
+.shot .mk-body{padding:14px;display:grid;gap:10px;font-size:.88rem}
+.shot .tag{position:absolute;left:8px;bottom:8px;background:var(--black);color:var(--cream);font:700 .66rem/1 var(--f-t);letter-spacing:.06em;padding:5px 8px;border-radius:99px;opacity:.85}
+.no-tags .shot .tag,.no-tags .ph .ph-tag{display:none}
+.field{border:2.5px solid var(--blue);border-radius:12px;padding:10px 12px;background:var(--cream);font-weight:500}
+.field small{display:block;font-size:.7rem;font-weight:700;color:var(--red);letter-spacing:.06em;text-transform:uppercase}
+.pill{display:inline-block;padding:4px 12px;border-radius:99px;font-weight:700;font-size:.78rem;border:2px solid var(--blue);color:var(--blue)}
+.pill.r{background:var(--red);border-color:var(--red);color:var(--cream)}
+.pill.o{background:var(--orange);border-color:var(--orange);color:var(--black)}
+.mk-btn{background:var(--orange);color:var(--black);border:2.5px solid var(--black);border-radius:99px;font-weight:700;text-align:center;padding:10px;box-shadow:3px 3px 0 var(--black)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px;border:2.5px solid var(--blue);border-radius:12px;padding:9px 12px;background:var(--white)}
+.row b{font-weight:700}
+.dot{width:14px;height:14px;border-radius:50%;flex:none;display:inline-block;margin-right:8px;vertical-align:-1px}
+.d1{background:var(--ok)}.d2{background:var(--yel)}.d3{background:var(--orange)}.d4{background:var(--red)}
+.send{background:var(--ok);color:#fff;font-weight:700;font-size:.74rem;padding:5px 10px;border-radius:99px}
+
+/* ---------- video ---------- */
+.video{background:var(--red);color:var(--cream);overflow:hidden}
+.video::before{content:"";position:absolute;right:-6%;top:-40px;width:420px;height:420px;background:url(assets/peine-crema.png) center/contain no-repeat;opacity:.1;transform:rotate(8deg)}
+.video h2{color:var(--cream)}
+.video .eyebrow{color:var(--cream);opacity:.9}
+.video .head{margin-inline:auto;text-align:center}
+.video .head .lead{margin-inline:auto}
+.vstage{position:relative;max-width:1000px;margin:0 auto;padding:0 0 26px 0}
+.vframe{position:relative;background:var(--black);border:5px solid var(--black);border-radius:26px;overflow:hidden;box-shadow:16px 16px 0 var(--blue)}
+.vbar{background:var(--cream);display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:4px solid var(--black)}
+.vbar i{width:13px;height:13px;border-radius:50%;background:var(--red);display:block}
+.vbar i:nth-child(2){background:var(--orange)}.vbar i:nth-child(3){background:var(--blue)}
+.vbar span{margin-left:12px;font:700 .8rem var(--f-t);color:var(--blue);background:var(--white);border:2px solid var(--blue);border-radius:99px;padding:3px 14px}
+.vscreen{position:relative;aspect-ratio:16/9;background:var(--blue-d)}
+.vscreen video,.vscreen iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000;object-fit:cover}
+/* ▼ Placeholder del video: desaparece solo cuando el video carga */
+.vph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px;background:
+  radial-gradient(circle at 20% 20%,rgba(249,45,26,.35),transparent 45%),
+  repeating-linear-gradient(115deg,rgba(255,243,225,.05) 0 26px,transparent 26px 52px),var(--blue);color:var(--cream)}
+.vph::before{content:"";position:absolute;inset:0;background:url(assets/rayo-peine-crema.png) 94% 50%/auto 86% no-repeat;opacity:.1}
+.vph>div{position:relative;display:grid;gap:14px;justify-items:center}
+.play{width:92px;height:92px;border-radius:50%;background:var(--orange);border:5px solid var(--black);box-shadow:5px 5px 0 var(--black);display:grid;place-items:center}
+.play::after{content:"";border-left:26px solid var(--black);border-block:16px solid transparent;margin-left:8px}
+.vph b{font:400 clamp(1.4rem,3.4vw,2.2rem)/1.1 var(--f-d)}
+.vph small{font-size:.82rem;opacity:.85;max-width:44ch}
+.vph .path{font:700 .72rem var(--f-t);background:var(--black);padding:6px 12px;border-radius:99px;letter-spacing:.04em}
+.no-tags .vph .path{display:none}
+.vchips{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:34px}
+.vchips span{background:var(--cream);color:var(--blue);border:3px solid var(--black);border-radius:99px;padding:8px 18px;font-weight:700;font-size:.92rem;box-shadow:3px 3px 0 var(--black)}
+.vcta{text-align:center;margin-top:30px}
+
+/* ---------- beneficios (bento) ---------- */
+.beneficios{background:var(--cream-d)}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
+.bn{border-radius:var(--r);padding:30px;border:3px solid var(--blue);background:var(--white);position:relative;overflow:hidden}
+.bn h3{font-size:1.6rem}
+.bn p{margin:0}
+.bn.w3{grid-column:span 3}.bn.w2{grid-column:span 2}.bn.w4{grid-column:span 4}
+.bn.red{background:var(--red);border-color:var(--black);color:var(--cream)}
+.bn.red h3{color:var(--cream)}
+.bn.blue{background:var(--blue);border-color:var(--black);color:var(--cream)}
+.bn.blue h3{color:var(--cream)}
+.bn .ico{width:54px;height:54px;object-fit:contain;margin-bottom:16px}
+.bn .big{font:400 clamp(3rem,7vw,5rem)/1 var(--f-d);display:block;margin-bottom:6px}
+.bn .wm{position:absolute;right:-30px;bottom:-34px;width:190px;opacity:.14;pointer-events:none}
+@media(max-width:960px){.bento{grid-template-columns:1fr 1fr}.bn.w3,.bn.w2,.bn.w4{grid-column:span 2}}
+@media(max-width:620px){.bento{grid-template-columns:1fr}.bn.w3,.bn.w2,.bn.w4{grid-column:auto}}
+.segs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.segs div{border-radius:16px;padding:12px 14px;font-weight:700;color:#fff;border:2.5px solid var(--black)}
+.segs span{display:block;font-weight:500;font-size:.84rem}
+.segs .s1{background:var(--ok)}.segs .s2{background:var(--yel);color:var(--black)}.segs .s3{background:var(--orange);color:var(--black)}.segs .s4{background:var(--red)}
+
+/* ---------- funcionalidades ---------- */
+.funciones{background:var(--cream)}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:84px}
+.feat:first-of-type{margin-top:0}
+.feat.rev .ftxt{order:2}
+@media(max-width:900px){.feat{grid-template-columns:1fr;gap:34px;margin-top:64px}.feat.rev .ftxt{order:0}}
+.ftxt h3{font-size:clamp(1.8rem,3.6vw,2.4rem)}
+.ftxt .tick{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px}
+.ftxt .tick li{display:flex;gap:12px;align-items:flex-start;font-weight:500}
+.ftxt .tick li::before{content:"";flex:none;width:22px;height:22px;margin-top:3px;background:url(assets/icono-rayo.png) center/contain no-repeat}
+.wa-b{background:#dcf8c6;border:3px solid var(--black);border-radius:20px 20px 20px 4px;padding:16px 18px;color:#1b2b1b;max-width:440px;margin-top:22px;box-shadow:4px 4px 0 var(--black)}
+.wa-b small{display:block;color:#3d5f3d;margin-top:8px}
+.levels{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.lv{text-align:center;font-weight:700;font-size:.84rem}
+.lv i{display:grid;place-items:center;width:100%;aspect-ratio:1;border-radius:50%;border:3px solid var(--black);margin-bottom:6px}
+.lv i img{width:46%}
+.lv small{display:block;font-weight:500;font-size:.72rem;opacity:.8}
+.l1 i{background:#d99a68}.l2 i{background:#d6dce5}.l3 i{background:var(--yel)}.l4 i{background:#9ad8f5}
+.bar{height:16px;border-radius:99px;background:var(--cream-d);border:2.5px solid var(--blue);overflow:hidden}
+.bar b{display:block;height:100%;width:62%;background:var(--red)}
+.carne{background:var(--blue);color:var(--cream);border-radius:20px;padding:18px;display:grid;gap:12px}
+.carne .top{display:flex;justify-content:space-between;align-items:center}
+.carne .top img{height:44px;background:var(--cream);border-radius:8px;padding:4px}
+.carne .nm{font:400 1.7rem/1 var(--f-d)}
+.carne .kv{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.carne .kv div{background:rgba(255,243,225,.12);border-radius:12px;padding:8px 12px;font-size:.78rem}
+.carne .kv b{display:block;font-size:1.05rem}
+.cells{display:grid;grid-template-columns:repeat(10,1fr);gap:6px}
+.cells i{aspect-ratio:1;border-radius:50% 50% 8px 8px;border:2.5px solid var(--blue);display:block}
+.cells i.on{background:var(--red);border-color:var(--black)}
+.shot.tall{max-width:360px;margin-inline:auto;width:100%}
+
+/* ---------- para quién ---------- */
+.paraq{background:var(--blue);color:var(--cream)}
+.paraq h2{color:var(--cream)}.paraq .eyebrow{color:var(--orange)}
+.pq{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:900px){.pq{grid-template-columns:1fr;max-width:520px;margin-inline:auto}}
+.pqc{background:var(--cream);color:var(--blue-d);border-radius:var(--r);border:3px solid var(--black);overflow:hidden;box-shadow:7px 7px 0 var(--black)}
+.pqc h3{margin:0 0 6px}
+.pqc div.t{padding:20px 22px 24px}
+.pqc p{margin:0}
+.ph{position:relative;aspect-ratio:3/2;display:grid;place-items:center;overflow:hidden;background:var(--red)}
+.ph.b{background:var(--blue-d)}.ph.o{background:var(--orange)}
+.ph::before{content:"";position:absolute;inset:0;background:url(assets/peine-crema.png) 50% 50%/62% no-repeat;opacity:.18}
+.ph>img.big{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  max-width:none;
+  max-height:none;
+  object-fit:cover;
+  display:block;
+  z-index:1;
+}
+
+.ph-tag{
+  position:absolute;
+  left:10px;
+  bottom:10px;
+  z-index:2;
+  background:var(--black);
+  color:var(--cream);
+  font:700 .66rem/1 var(--f-t);
+  letter-spacing:.06em;
+  padding:5px 9px;
+  border-radius:99px;
+}
+
+/* ---------- planes ---------- */
+.planes{background:var(--cream-d)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+@media(max-width:960px){.plans{grid-template-columns:1fr;max-width:480px;margin-inline:auto}}
+.plan{background:var(--white);border:3px solid var(--blue);border-radius:var(--r);padding:30px 26px;display:flex;flex-direction:column;position:relative}
+.plan.top{background:var(--red);color:var(--cream);border-color:var(--black);box-shadow:var(--sh);transform:translateY(-10px)}
+.plan.top h3,.plan.top .pr{color:var(--cream)}
+@media(max-width:960px){.plan.top{transform:none}}
+.plan .flag{position:absolute;top:-16px;left:22px;background:var(--orange);color:var(--black);border:3px solid var(--black);font-weight:700;font-size:.74rem;letter-spacing:.08em;padding:5px 14px;border-radius:99px}
+.plan .pr{font:400 2.6rem/1 var(--f-d);color:var(--red);margin:6px 0 2px}
+.plan .pr small{font:500 .95rem var(--f-t)}
+.plan ul{list-style:none;padding:0;margin:16px 0 22px;display:grid;gap:9px;flex:1}
+.plan li{display:flex;gap:10px;font-weight:500;font-size:.95rem}
+.plan li::before{content:"";flex:none;width:19px;height:19px;margin-top:3px;background:url(assets/icono-rayo.png) center/contain no-repeat}
+.plan.top li::before{background-image:url(assets/rayo-peine-crema.png)}
+.plan .btn{width:100%}
+.plan .btn-alt{border-color:var(--blue);color:var(--blue)}
+.plan.top .btn-alt{border-color:var(--cream);color:var(--cream)}
+
+/* ---------- confianza ---------- */
+.confianza{background:var(--cream)}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:960px){.trust{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.trust{grid-template-columns:1fr}}
+.tr{border-top:6px solid var(--red);background:var(--white);border-radius:0 0 var(--r) var(--r);padding:22px;border-inline:3px solid var(--blue);border-bottom:3px solid var(--blue)}
+.tr h3{font-size:1.2rem}
+.tr p{margin:0;font-size:.96rem}
+.testi[hidden]{display:none}
+.testi{margin-top:56px}
+.testi .grid3{margin-top:24px}
+.tcard{background:var(--blue);color:var(--cream);border-radius:var(--r);padding:26px;border:3px solid var(--black)}
+.tcard q{display:block;font:400 1.3rem/1.2 var(--f-d);quotes:none;margin-bottom:14px}
+
+/* ---------- demo ---------- */
+.demo{background:var(--blue);color:var(--cream);overflow:hidden}
+.demo h2{color:var(--cream)}.demo .eyebrow{color:var(--orange)}
+.demo .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+@media(max-width:900px){.demo .wrap{grid-template-columns:1fr}}
+.pin{display:inline-flex;align-items:center;gap:12px;background:var(--cream);color:var(--blue);border-radius:99px;padding:8px 22px 8px 12px;font-weight:700;margin:6px 0 4px}
+.pin b{font:400 1.7rem/1 var(--f-d);background:var(--red);color:var(--cream);border-radius:99px;padding:6px 16px;letter-spacing:.12em}
+.demo .nota{font-size:.88rem;opacity:.85;max-width:56ch;margin-top:20px}
+.duo{position:relative;min-height:380px}
+.duo .shot{position:absolute;width:56%;box-shadow:7px 7px 0 var(--black);border-color:var(--black);color:var(--blue-d)}
+.duo .a{left:0;top:0;transform:rotate(-3deg)}
+.duo .b{right:0;bottom:0;transform:rotate(3deg)}
+@media(max-width:900px){.duo{min-height:440px;max-width:480px;margin-inline:auto;width:100%}}
+
+/* ---------- FAQ ---------- */
+.faq{background:var(--cream)}
+.faq .wrap{max-width:820px}
+details{background:var(--white);border:3px solid var(--blue);border-radius:18px;margin-bottom:14px}
+details[open]{box-shadow:5px 5px 0 var(--blue)}
+summary{cursor:pointer;padding:18px 56px 18px 22px;font-weight:700;font-size:1.06rem;min-height:56px;list-style:none;position:relative;color:var(--blue)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:var(--red);color:var(--cream);font:400 1.5rem/30px var(--f-d);text-align:center}
+details[open] summary::after{content:"–"}
+details p{padding:0 22px 20px;margin:0}
+
+/* ---------- cierre ---------- */
+.cierre{background:var(--red);color:var(--cream);text-align:center;overflow:hidden;padding:110px 0}
+.cierre::before{content:"";position:absolute;left:-60px;bottom:-80px;width:420px;height:420px;background:url(assets/peine-crema.png) center/contain no-repeat;opacity:.12;transform:rotate(-12deg)}
+.cierre::after{content:"";position:absolute;right:-40px;top:-40px;width:320px;height:320px;background:url(assets/rayo-peine-crema.png) center/contain no-repeat;opacity:.12}
+.cierre .wrap{position:relative;z-index:2}
+.cierre h2{color:var(--cream);font-size:clamp(2.2rem,6vw,4.2rem);max-width:15ch;margin-inline:auto}
+.cierre .lead{margin:0 auto;font-size:1.3rem;font-weight:500;color:var(--cream)}
+.cierre .cta-row{justify-content:center}
+.cierre .btn-alt{color:var(--cream)}
+.cierre .ene{width:84px;margin:0 auto 20px;background:var(--cream);border-radius:18px;padding:14px 18px}
+#contacto[hidden]{display:none}
+#contacto a{color:var(--cream);font-weight:700}
+
+/* ---------- footer ---------- */
+footer{background:var(--blue-d);color:var(--cream);padding:48px 0 40px}
+footer .wrap{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:center}
+footer .lg{background:var(--cream);border-radius:14px;padding:12px 16px}
+footer .lg img{height:78px;width:auto}
+footer p{margin:0;font-size:.9rem;opacity:.9}
+footer .by{display:grid;gap:8px;justify-items:end;font-size:.8rem;text-align:right}
+footer .by img{height:34px;width:auto}
+footer a{color:var(--cream)}
+@media(max-width:760px){footer .wrap{grid-template-columns:1fr;text-align:center;justify-items:center}footer .by{justify-items:center;text-align:center}}
+
+/* CTA flotante móvil */
+.mcta{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:60;display:none;transform:translateY(140%);transition:transform .3s}
+.mcta.show{transform:none}
+.mcta .btn{width:100%;box-shadow:4px 4px 0 var(--black)}
+@media(max-width:760px){.mcta{display:block}footer{padding-bottom:96px}}
+
+/* revelado suave */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body class="no-tags">
+<!-- Para ver las etiquetas de los espacios de imagen/video (ayuda al montar), cambia class="no-tags" por class="" arriba. -->
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="ÑAPA, ir al inicio"><img src="fotos/textorojo.png" alt="ÑAPA" width="29" height="50"></a>
+    <nav aria-label="Secciones">
+      <a href="#como">Cómo funciona</a><a href="#beneficios">Beneficios</a><a href="#funciones">Funciones</a><a href="#planes">Planes</a><a href="#preguntas">Preguntas</a>
+      <a class="btn btn-main" href="#demo-real">Probar la demo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero" aria-labelledby="h-hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Membresía de barrio · para barberías y salones</span>
+      <h1 id="h-hero">Que tus clientes fijos sigan siendo <span class="hl">fijos.</span></h1>
+      <p class="lead">ÑAPA es la membresía mensual de tu barbería o salón, desde el celular: tus clientes pagan una cuota baja y reciben descuentos reales, comparten el beneficio con familia y amigos, y tú ves quién vuelve y quién se está yendo.</p>
+      <div class="cta-row">
+        <a class="btn btn-main" href="#demo-real">Probar la demo gratis</a>
+        <a class="btn btn-alt" href="#como">Ver cómo funciona</a>
+      </div>
+    </div>
+
+    <div class="stage" id="simulador">
+      <div class="phone" role="group" aria-labelledby="ph-t">
+        <div class="phone-bar"><img src="assets/icono-ene.png" alt=""><span id="ph-t">Registrar visita</span><span class="chip">DEMO</span></div>
+        <div class="phone-body">
+          <label for="srv">Servicio</label>
+          <select id="srv"></select>
+          <label for="pln">Membresía del cliente</label>
+          <select id="pln"></select>
+          <label class="chk"><input type="checkbox" id="ben"> Lo trae un familiar o amigo del titular</label>
+          <div class="cobrar" aria-live="polite">
+            <small>La app te dice cuánto cobrar</small>
+            <div class="monto" id="monto">$0</div>
+            <div class="ahorro" id="ahorro"></div>
+            <small id="lista"></small>
+          </div>
+          <p class="nota">Simulación con precios de ejemplo. Mueve las opciones. Cada negocio pone los suyos en su Google Sheets.</p>
+        </div>
+      </div>
+      <div class="float lvl" aria-hidden="true"><img src="assets/icono-rayo.png" alt="">Cada visita suma puntos</div>
+      <div class="float wa" aria-hidden="true">“¡Yeison, te extrañamos! Hace 40 días no te vemos…”<small class="sub" style="display:block;margin-top:4px">Ejemplo de aviso por WhatsApp</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUESINA ============ -->
+<div class="marq" aria-hidden="true">
+  <div class="marq-t">
+    <span>Carné digital<img src="fotos/rayocrema.png" alt="">Descuentos que se calculan solos<img src="fotos/rayocrema.png" alt="">Familia y amigos<img src="fotos/rayocrema.png" alt="">Avisos por WhatsApp<img src="fotos/rayocrema.png" alt="">Premios y niveles<img src="fotos/rayocrema.png" alt=""></span>
+    <span>Carné digital<img src="fotos/rayocrema.png" alt="">Descuentos que se calculan solos<img src="fotos/rayocrema.png" alt="">Familia y amigos<img src="fotos/rayocrema.png" alt="">Avisos por WhatsApp<img src="fotos/rayocrema.png" alt="">Premios y niveles<img src="fotos/rayocrema.png" alt=""></span>
+  </div>
+</div>
+
+<!-- ============ 2. PROBLEMA ============ -->
+<section class="problema" id="problema" aria-labelledby="h-prob">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">El problema</span>
+      <h2 id="h-prob">Cuando no hay orden, el cliente se va callado.</h2>
+      <p class="lead">En Santa Marta hay hasta 10 barberías y salones por barrio. Con tanta competencia, cada cliente que no vuelve duele.</p>
+    </div>
+    <div class="grid3">
+      <article class="pcard rv"><div class="ic"><img src="fotos/doc.png" alt=""></div><h3>Citas por todos lados</h3><p>WhatsApp y llamadas sin orden: unos días llenos, otros vacíos, y sin claridad de cómo aprovecharlos.</p></article>
+      <article class="pcard rv"><div class="ic"><img src="fotos/cursor.png" alt=""></div><h3>Nadie le hace seguimiento</h3><p>Si alguien deja de venir, casi nunca te enteras a tiempo. Se va en silencio donde la competencia.</p></article>
+      <article class="pcard rv"><div class="ic"><img src="fotos/tijeras.png" alt=""></div><h3>Bajar el precio no es salida</h3><p>Competir con precios más bajos se come tu margen de ganancia, y mañana otro lo baja más.</p></article>
+    </div>
+    <div class="stats">
+      <div class="stat rv"><b>Hasta 10</b><span>Barberías y salones por barrio en Santa Marta.</span></div>
+      <div class="stat b2 rv"><b>15K a 25K</b><span>Lo que ronda un corte de barrio.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. LA ÑAPA (concepto de marca) ============ -->
+<section class="napa" aria-labelledby="h-napa">
+  <div class="wrap">
+    <div class="bigene rv" aria-hidden="true"><img src="fotos/logorojo.png" alt="" width="143" height="227"><span class="teeth"></span></div>
+    <div class="rv">
+      <span class="eyebrow">La salida</span>
+      <h2 id="h-napa">No bajes el precio. Dale ñapa.</h2>
+      <p>La ñapa es eso de más que hace que una experiencia sea mejor de lo esperado. Así es ÑAPA: en vez de competir por quién cobra menos, le das a tu cliente fijo algo que otro no le da: descuentos reales, puntos, premios y un carné digital con su nombre.</p>
+      <p>Tú ganas clientes que vuelven. Ellos, un beneficio de verdad. Ñapa para los dos.</p>
+      <p class="quote">Un lugar que conoce a su cliente y lo premia por quedarse.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. CÓMO FUNCIONA ============ -->
+<section class="como" id="como" aria-labelledby="h-como">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Cómo funciona</span>
+      <h2 id="h-como">Tres pasos. Desde tu celular.</h2>
+      <p class="lead">Sin computador ni cosas complicadas. Así se ve el día a día con ÑAPA.</p>
+    </div>
+    <ol class="steps">
+      <li class="rv">
+        <div class="stepn"><h3>Vendes la membresía</h3></div>
+        <!-- IMAGEN 01 · captura de "Nuevo miembro" · proporción 4:5 · archivo: assets/captura-paso1-vender.webp -->
+        <figure class="shot" data-src="assets/captura-paso1-vender.webp" data-alt="Pantalla de la app para crear un nuevo miembro con nombre, celular y plan" style="margin:0;aspect-ratio:4/5">
+          <div class="mk-bar"><span>Nuevo miembro</span><span class="pill o">EJEMPLO</span></div>
+          <div class="mk-body">
+            <div class="field"><small>Nombre</small>Yeison</div>
+            <div class="field"><small>Celular</small>300 000 0000</div>
+            <div class="field"><small>Plan</small>Membresía Familiar</div>
+            <div class="mk-btn">Vender membresía</div>
+            <div class="row"><span>Código de 4 números por WhatsApp</span><span class="send">Enviar</span></div>
+          </div>
+          <span class="tag">CAPTURA 01 · 4:5 · captura-paso1-vender.webp</span>
+        </figure>
+        <p>Nuevo cliente: nombre, celular y plan. Le mandas por WhatsApp su código de 4 números para que vea sus puntos.</p>
+      </li>
+      <li class="rv">
+        <div class="stepn"><h3>Registras cada visita</h3></div>
+        <!-- IMAGEN 02 · captura de "Registrar visita" · proporción 4:5 · archivo: assets/captura-paso2-visita.webp -->
+        <figure class="shot" data-src="assets/captura-paso2-visita.webp" data-alt="Pantalla de la app para registrar una visita con el descuento ya calculado" style="margin:0;aspect-ratio:4/5">
+          <div class="mk-bar"><span>Registrar visita</span><span class="pill o">EJEMPLO</span></div>
+          <div class="mk-body">
+            <div class="field"><small>Cliente</small>Yeison · Membresía Familiar</div>
+            <div class="row"><span>Corte + barba</span><b>$20.000</b></div>
+            <div class="row" style="background:var(--cream)"><span>Con su descuento (20%)</span><b style="color:var(--red)">$16.000</b></div>
+            <div class="mk-btn">Registrar visita</div>
+            <div class="row"><span>Premio ganado: avísale</span><span class="send">WhatsApp</span></div>
+          </div>
+          <span class="tag">CAPTURA 02 · 4:5 · captura-paso2-visita.webp</span>
+        </figure>
+        <p>Buscas al cliente, tocas el servicio y la app calcula el descuento. Si ganó un premio, te avisa para contarle por WhatsApp.</p>
+      </li>
+      <li class="rv">
+        <div class="stepn"><h3>Revisas los avisos cada mañana</h3></div>
+        <!-- IMAGEN 03 · captura de "Avisos" · proporción 4:5 · archivo: assets/captura-paso3-avisos.webp -->
+        <figure class="shot" data-src="assets/captura-paso3-avisos.webp" data-alt="Pantalla de avisos con clientes que hace rato no vienen, cumpleaños y membresías por vencer" style="margin:0;aspect-ratio:4/5">
+          <div class="mk-bar"><span>Avisos de hoy</span><span class="pill o">EJEMPLO</span></div>
+          <div class="mk-body">
+            <div class="row"><span><i class="dot d3"></i>Hace rato no viene</span><span class="send">Enviar</span></div>
+            <div class="row"><span><i class="dot d1"></i>Cumple años</span><span class="send">Enviar</span></div>
+            <div class="row"><span><i class="dot d2"></i>Membresía por vencer</span><span class="send">Enviar</span></div>
+            <p class="sub" style="margin:4px 0 0">Tocas Enviar y WhatsApp abre con el mensaje ya escrito.</p>
+          </div>
+          <span class="tag">CAPTURA 03 · 4:5 · captura-paso3-avisos.webp</span>
+        </figure>
+        <p>Quién hace rato no viene, quién cumple años, qué membresías vencen. Tocas Enviar y WhatsApp abre con el mensaje ya escrito.</p>
+      </li>
+    </ol>
+    <div class="cta-row" style="justify-content:center"><a class="btn btn-main" href="#demo-real">Probarlo yo mismo</a></div>
+  </div>
+</section>
+
+<!-- ============ 5. VIDEO PROTAGONISTA ============ -->
+<section class="video" id="video" aria-labelledby="h-video">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Míralo en acción</span>
+      <h2 id="h-video">ÑAPA en un minuto.</h2>
+      <p class="lead">Una barbería de barrio, una membresía y un cliente que sí vuelve.</p>
+    </div>
+    <div class="vstage rv">
+      <div class="vframe">
+        <div class="vbar"><i></i><i></i><i></i><span>Ñapa · explicado por sus creadores</span></div>
+        <!-- ▼▼▼ AQUÍ VA EL VIDEO ▼▼▼
+             Opción A (archivo): guarda el video como  assets/video-napa.mp4  y el cartel como  assets/video-poster.webp
+             Opción B (YouTube/Vimeo): pega el enlace de insertar en  VIDEO.embed  (al final de esta página, bloque "CONFIGURACIÓN").
+             No hay que tocar nada más: el placeholder desaparece solo. -->
+        <div class="vscreen" id="video-slot">
+          <div class="vph" id="video-ph">
+            <div>
+              <span class="play" aria-hidden="true"></span>
+              <b>Aquí va tu video</b>
+              <small>Sketch o demostración comercial · formato 16:9</small>
+              <span class="path">assets/video-napa.mp4 · cartel: assets/video-poster.webp</span>
+            </div>
+          </div>
+        </div>
+        <!-- ▲▲▲ FIN DEL VIDEO ▲▲▲ -->
+      </div>
+    </div>
+    <div class="vchips rv"><span>Carné digital</span><span>Descuentos automáticos</span><span>Avisos por WhatsApp</span></div>
+    <div class="vcta rv"><a class="btn btn-main" href="#demo-real">Probar la demo</a></div>
+  </div>
+</section>
+
+<!-- ============ 6. BENEFICIOS ============ -->
+<section class="beneficios" id="beneficios" aria-labelledby="h-ben">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Beneficios</span>
+      <h2 id="h-ben">Para ti, más clientes que vuelven. Para ellos, más por su plata.</h2>
+    </div>
+    <div class="bento">
+      <article class="bn w4 red rv">
+        <h3>Sabes quién se está yendo, antes de que se vaya</h3>
+        <p>Cada cliente aparece con un color según los días desde su última visita. Los límites vienen así de fábrica y se pueden cambiar.</p>
+        <div class="segs">
+          <div class="s1">Al día<span>Menos de 21 días</span></div>
+          <div class="s2">Recordar<span>21 a 34 días</span></div>
+          <div class="s3">En riesgo<span>35 a 59 días</span></div>
+          <div class="s4" style="border-color:var(--cream)">Perdido<span>60 días o más</span></div>
+        </div>
+      </article>
+      <article class="bn w2 rv">
+        <img class="ico" src="fotos/peine.png" alt="">
+        <h3>El descuento se calcula solo</h3>
+        <p>Tocas el servicio y la app te dice cuánto cobrar. Se acabó la calculadora.</p>
+      </article>
+      <article class="bn w2 blue rv">
+        <img class="ico" src="fotos/rayorojo.svg" alt="" style="filter:brightness(0) invert(1)">
+        <h3>Una razón para volver</h3>
+        <p>Puntos, niveles y premios por visita, y bono para quien invita a un amigo.</p>
+      </article>
+      <article class="bn w2 rv">
+        <img class="ico" src="fotos/tijeras.png" alt="">
+        <h3>La membresía se contagia</h3>
+        <p>El titular comparte el beneficio con su familia y sus amigos. Más gente en tu silla, sin gastar en publicidad.</p>
+      </article>
+      <article class="bn w2 rv">
+        <img class="ico" src="fotos/doc.png" alt="">
+        <h3>Tus datos son tuyos</h3>
+        <p>Viven en un Google Sheets de tu cuenta. Tú cambias precios, planes y premios ahí, sin tocar código.</p>
+      </article>
+    </div>
+    <div class="cta-row" style="justify-content:center;margin-top:44px"><a class="btn btn-main" href="#demo-real">Ver la demo</a></div>
+  </div>
+</section>
+
+<!-- ============ 7. FUNCIONES (demostración visual) ============ -->
+<section class="funciones" id="funciones" aria-labelledby="h-fun">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Lo que trae la app</span>
+      <h2 id="h-fun">Cada función, una razón concreta.</h2>
+    </div>
+
+    <!-- F1 semáforo + whatsapp -->
+    <div class="feat">
+      <div class="ftxt rv">
+        <h3>Contacta al cliente antes de perderlo</h3>
+        <p>La app te muestra quién ya está en riesgo y te deja el mensaje escrito. Tú solo tocas Enviar desde tu propio WhatsApp.</p>
+        <div class="wa-b">¡Yeison, te extrañamos en Barbería El Rodadero! Hace 40 días no te vemos. Si vienes esta semana tienes 25% por volver. ¿Qué día te queda bien?<small>Ejemplo de mensaje para clientes en riesgo.</small></div>
+      </div>
+      <!-- IMAGEN 04 · captura de "Clientes" con colores · proporción 4:3 · assets/captura-semaforo.webp -->
+      <figure class="shot rv" data-src="assets/captura-semaforo.webp" data-alt="Lista de clientes con colores según los días desde su última visita" style="margin:0;aspect-ratio:4/3.4">
+        <div class="mk-bar"><span>Clientes</span><span class="pill o">EJEMPLO</span></div>
+        <div class="mk-body">
+          <div class="row"><span><i class="dot d1"></i><b>Cliente A</b> · hace 8 días</span><span class="pill">Al día</span></div>
+          <div class="row"><span><i class="dot d2"></i><b>Cliente B</b> · hace 26 días</span><span class="pill">Recordar</span></div>
+          <div class="row"><span><i class="dot d3"></i><b>Cliente C</b> · hace 40 días</span><span class="pill o">En riesgo</span></div>
+          <div class="row"><span><i class="dot d4"></i><b>Cliente D</b> · hace 70 días</span><span class="pill r">Perdido</span></div>
+        </div>
+        <span class="tag">CAPTURA 04 · 4:3 · captura-semaforo.webp</span>
+      </figure>
+    </div>
+
+    <!-- F2 niveles -->
+    <div class="feat rev">
+      <div class="ftxt rv">
+        <h3>Premios y niveles que dan ganas de volver</h3>
+        <p>Cada visita suma puntos y el cliente sube de nivel según cuántas veces viene.</p>
+        <ul class="tick">
+          <li>Premio cada 5 y cada 10 visitas, regalo de cumpleaños y descuento por volver.</li>
+          <li>Puntos que se canjean por servicios.</li>
+          <li>Bono para quien invita a un amigo que se registra.</li>
+        </ul>
+        <p class="sub" style="margin-top:14px">Premios de ejemplo de la demo. Se editan en la hoja Recompensas.</p>
+      </div>
+      <!-- IMAGEN 05 · captura de niveles/premios · proporción 4:3 · assets/captura-niveles.webp -->
+      <figure class="shot rv" data-src="assets/captura-niveles.webp" data-alt="Niveles Bronce, Plata, Oro y Diamante con la barra de progreso al siguiente nivel" style="margin:0;aspect-ratio:4/3.4">
+        <div class="mk-bar"><span>Niveles</span><span class="pill o">EJEMPLO</span></div>
+        <div class="mk-body" style="gap:16px">
+          <div class="levels">
+            <div class="lv l1"><i><img src="assets/icono-rayo.png" alt=""></i>Bronce<small>desde la 1.ª visita</small></div>
+            <div class="lv l2"><i><img src="assets/icono-rayo.png" alt=""></i>Plata<small>6 visitas</small></div>
+            <div class="lv l3"><i><img src="assets/icono-rayo.png" alt=""></i>Oro<small>15 visitas</small></div>
+            <div class="lv l4"><i><img src="assets/icono-rayo.png" alt=""></i>Diamante<small>30 visitas</small></div>
+          </div>
+          <div><div class="bar"><b></b></div><p class="sub" style="margin:6px 0 0">Así ve el cliente cuánto le falta para el siguiente nivel (ilustración).</p></div>
+        </div>
+        <span class="tag">CAPTURA 05 · 4:3 · captura-niveles.webp</span>
+      </figure>
+    </div>
+
+    <!-- F3 familia + carné -->
+    <div class="feat">
+      <div class="ftxt rv">
+        <h3>La membresía se comparte con la familia y los amigos</h3>
+        <p>El titular agrega a sus familiares o amigos y ellos también tienen descuento. Cada plan define cuántos pueden usarla y cuántas veces al mes. El titular es quien gana los puntos.</p>
+        <p>Y el cliente lo ve todo en <b>Mi membresía</b>: con su celular y su código de 4 números entra a su carné digital con nivel, puntos, vencimiento y premios. Los premios marcados como “Regalar” se pueden pasar a otra persona por WhatsApp.</p>
+        <div class="cta-row" style="margin-top:20px"><a class="btn btn-alt" href="https://agenciacanana-sketch.github.io/MVP1/miembro.html" target="_blank" rel="noopener">Ver la página del cliente</a></div>
+      </div>
+      <!-- IMAGEN 06 · captura de "Mi membresía" (carné digital) en celular · proporción 9:16 · assets/captura-carne.webp -->
+      <figure class="shot tall rv" data-src="assets/captura-carne.webp" data-alt="Carné digital Mi membresía con nivel, puntos, vencimiento y premios" style="margin:0;aspect-ratio:9/15">
+        <div class="mk-bar"><span>Mi membresía</span><span class="pill o">EJEMPLO</span></div>
+        <div class="mk-body">
+          <div class="carne">
+            <div class="top"><img src="fotos/logorojo.png" alt="ÑAPA"><span class="pill o">Oro</span></div>
+            <div class="nm">Nombre del titular</div>
+            <div class="kv"><div>Puntos<b>—</b></div><div>Vence<b>—</b></div></div>
+            <div><div class="bar" style="background:rgba(255,243,225,.2);border-color:var(--cream)"><b style="width:58%;background:var(--orange)"></b></div></div>
+          </div>
+          <div class="row"><span>Premio disponible</span><span class="pill r">Regalar</span></div>
+          <div class="mk-btn">Apartar turno por WhatsApp</div>
+        </div>
+        <span class="tag">CAPTURA 06 · 9:15 · captura-carne.webp</span>
+      </figure>
+    </div>
+
+    <!-- F4 meta -->
+    <div class="feat rev">
+      <div class="ftxt rv">
+        <h3>Tu meta, a la vista</h3>
+        <p>El inicio muestra cuántos miembros activos tienes frente a tu meta. La meta que trae la demo es de 40 miembros activos y la cambias en tu hoja de Config.</p>
+        <p>Los precios, planes, servicios, premios y el PIN se cambian en Google Sheets, sin tocar código.</p>
+      </div>
+      <!-- IMAGEN 07 · captura del "Inicio" con la meta · proporción 4:3 · assets/captura-inicio-meta.webp -->
+      <figure class="shot rv" data-src="assets/captura-inicio-meta.webp" data-alt="Pantalla de inicio con miembros activos frente a la meta" style="margin:0;aspect-ratio:4/3.4">
+        <div class="mk-bar"><span>Inicio</span><span class="pill o">EJEMPLO</span></div>
+        <div class="mk-body" style="gap:16px">
+          <div style="display:flex;align-items:baseline;gap:12px"><span style="font:400 4rem/1 var(--f-d);color:var(--red)">40</span><b>miembros activos: la meta que trae la demo</b></div>
+          <div class="cells" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <p class="sub" style="margin:0">Ilustración: así se va llenando tu meta.</p>
+        </div>
+        <span class="tag">CAPTURA 07 · 4:3 · captura-inicio-meta.webp</span>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. PARA QUIÉN ES ============ -->
+<section class="paraq" id="para-quien" aria-labelledby="h-pq">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Para quién es</span>
+      <h2 id="h-pq">Hecha para el negocio de barrio.</h2>
+      <p class="lead">Si atiendes clientes que podrían volver cada mes, ÑAPA te ayuda a que vuelvan contigo.</p>
+    </div>
+    <div class="pq">
+      <article class="pqc rv">
+        <!-- IMAGEN 08 · foto de barbero atendiendo · proporción 3:2 · assets/foto-barberia-01.webp -->
+        <div class="ph" data-photo="assets/foto-barberia-01.webp" data-alt="Barbero atendiendo a un cliente en una barbería de barrio"><img class="big" src="fotos/barberia1.png" alt=""><span class="ph-tag">FOTO 08 · 3:2 · foto-barberia-01.webp</span></div>
+        <div class="t"><h3>Barberías</h3><p>Convierte al cliente del corte de cada mes en miembro de tu barbería.</p></div>
+      </article>
+      <article class="pqc rv">
+        <!-- IMAGEN 09 · foto de salón de belleza · proporción 3:2 · assets/foto-salon-01.webp -->
+        <div class="ph b" data-photo="assets/foto-salon-01.webp" data-alt="Estilista atendiendo a una clienta en un salón de belleza"><img class="big" src="fotos/salon.png" alt=""><span class="ph-tag">FOTO 09 · 3:2 · foto-salon-01.webp</span></div>
+        <div class="t"><h3>Salones de belleza</h3><p>Servicios como corte, tinte o manicure, con descuentos y premios para quien repite.</p></div>
+      </article>
+      <article class="pqc rv">
+        <!-- IMAGEN 10 · foto de equipo / varios profesionales · proporción 3:2 · assets/foto-equipo-01.webp -->
+        <div class="ph o" data-photo="assets/foto-equipo-01.webp" data-alt="Equipo de profesionales de un negocio de belleza de barrio"><img class="big" src="fotos/peluquero.png" alt=""><span class="ph-tag">FOTO 10 · 3:2 · foto-equipo-01.webp</span></div>
+        <div class="t"><h3>Con varios profesionales</h3><p>Pones quién atiende en la configuración y aparece como botones al registrar cada visita.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. PLANES ============ -->
+<section class="planes" id="planes" aria-labelledby="h-pl">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Planes de ejemplo</span>
+      <h2 id="h-pl">Los planes que tu negocio puede vender.</h2>
+      <p class="lead">Tres planes vienen cargados en la demo para que veas cómo se arma. Cada negocio define los suyos: precios, descuentos y cupos.</p>
+    </div>
+    <div class="plans" id="plans"></div>
+    <p class="sub" style="text-align:center;margin-top:26px">Valores de ejemplo de la demo, no son una oferta fija.</p>
+  </div>
+</section>
+
+<!-- ============ 10. CONFIANZA ============ -->
+<section class="confianza" id="confianza" aria-labelledby="h-conf">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Por qué confiar</span>
+      <h2 id="h-conf">Claro desde el primer día.</h2>
+    </div>
+    <div class="trust">
+      <article class="tr rv"><h3>Tus datos, en tu cuenta</h3><p>Todo queda en un Google Sheets que es tuyo. Lo ves desde cualquier dispositivo con tu enlace y tu PIN.</p></article>
+      <article class="tr rv"><h3>Tú mandas los mensajes</h3><p>La app deja el mensaje escrito y abre WhatsApp. Tú tocas Enviar desde tu propio número.</p></article>
+      <article class="tr rv"><h3>Cada negocio, independiente</h3><p>Cada barbería o salón tiene su propio archivo, su propio script y su propio PIN. Nada se mezcla.</p></article>
+      <article class="tr rv"><h3>Hecho en Santa Marta</h3><p>Lo desarrolla la agencia Cañaña para el negocio de barrio de nuestra tierra.</p></article>
+    </div>
+
+    <!-- ▼ TESTIMONIOS: estructura lista. Se muestran solo cuando pongas  MOSTRAR_TESTIMONIOS = true  y escribas testimonios REALES (ver CONFIGURACIÓN al final). -->
+    <div class="testi" id="testimonios" hidden>
+      <h3>Lo que dicen los primeros negocios</h3>
+      <div class="grid3" id="testi-grid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11. DEMO REAL ============ -->
+<section class="demo on-dark" id="demo-real" aria-labelledby="h-demo">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Pruébala</span>
+      <h2 id="h-demo">Pruébala tú mismo, en tu celular.</h2>
+      <p class="lead">La app de demostración funciona con datos de ejemplo, sin configurar nada.</p>
+      <div class="pin">Entra con el PIN <b>1234</b></div>
+      <div class="cta-row">
+        <a class="btn btn-main" href="https://agenciacanana-sketch.github.io/MVP1/" target="_blank" rel="noopener">Abrir la app del dueño</a>
+        <a class="btn btn-alt" href="https://agenciacanana-sketch.github.io/MVP1/miembro.html" target="_blank" rel="noopener">Ver la página del cliente</a>
+      </div>
+      <p class="nota">Se puede instalar como app: en Chrome, menú ⋮ y “Agregar a pantalla principal”. Para probar “Mi membresía”, entra a un miembro desde la app del dueño y usa su celular y su código.</p>
+    </div>
+    <div class="duo rv" aria-hidden="false">
+      <!-- IMAGEN 11 · captura de la app del dueño · proporción 9:16 · assets/captura-demo-dueno.webp -->
+      <figure class="shot a" data-src="assets/captura-demo-dueno.webp" data-alt="App del dueño: inicio con la meta y el menú Inicio, Visita, Clientes y Avisos" style="margin:0;aspect-ratio:9/15">
+        <div class="mk-bar"><span>App del dueño</span><span class="pill o">DEMO</span></div>
+        <div class="mk-body"><div class="row"><span>Inicio</span></div><div class="row"><span>Visita</span></div><div class="row"><span>Clientes</span></div><div class="row"><span>Avisos</span></div></div>
+        <span class="tag">CAPTURA 11 · 9:15 · captura-demo-dueno.webp</span>
+      </figure>
+      <!-- IMAGEN 12 · captura de la página del cliente · proporción 9:16 · assets/captura-demo-cliente.webp -->
+      <figure class="shot b" data-src="assets/captura-demo-cliente.webp" data-alt="Página del cliente con su carné digital" style="margin:0;aspect-ratio:9/15">
+        <div class="mk-bar"><span>Mi membresía</span><span class="pill o">DEMO</span></div>
+        <div class="mk-body"><div class="carne"><div class="top"><span class="nm" style="font-size:1.3rem">Tu carné</span></div><div class="kv"><div>Nivel<b>—</b></div><div>Puntos<b>—</b></div></div></div></div>
+        <span class="tag">CAPTURA 12 · 9:15 · captura-demo-cliente.webp</span>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12. PREGUNTAS ============ -->
+<section class="faq" id="preguntas" aria-labelledby="h-faq">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2 id="h-faq">Lo que seguro te estás preguntando.</h2>
+    </div>
+    <details class="rv"><summary>¿Es muy complicado de manejar?</summary><p>Se maneja en tres pasos desde el celular: vendes la membresía, registras la visita y revisas los avisos. Puedes probar la demo ahora mismo, con datos de ejemplo y sin configurar nada.</p></details>
+    <details class="rv"><summary>¿Necesito un computador?</summary><p>No. La app está pensada para el celular y se instala desde el navegador, sin tienda de aplicaciones.</p></details>
+    <details class="rv"><summary>¿Dónde quedan los datos de mis clientes?</summary><p>En un Google Sheets que es tuyo. Los datos no dependen del celular: los ves desde cualquier dispositivo con tu enlace y tu PIN.</p></details>
+    <details class="rv"><summary>¿Los mensajes de WhatsApp salen solos?</summary><p>No. La app deja el mensaje escrito y abre WhatsApp; tú tocas Enviar. Lo que sí es automático son los avisos del día, y si pones tu correo puedes recibir cada mañana la lista de clientes a contactar.</p></details>
+    <details class="rv"><summary>¿Puedo cambiar precios y beneficios?</summary><p>Sí, en tus hojas de Google Sheets (Config, Planes, Servicios y Recompensas). No hay que tocar código.</p></details>
+    <details class="rv"><summary>¿Puedo usarla con varios profesionales?</summary><p>Sí. En la configuración pones quién atiende y aparece como botones al registrar cada visita.</p></details>
+    <details class="rv"><summary>¿Qué necesita mi negocio para empezar?</summary><p>Su propio archivo de Google Sheets, una cuenta de Google y su propio enlace de Apps Script. Cada negocio queda independiente de los demás.</p></details>
+    <details class="rv"><summary>¿Cuánto cuesta ÑAPA?</summary><p data-precio>Escríbenos y te contamos las condiciones para tu negocio.</p></details>
+  </div>
+</section>
+
+<!-- ============ 13. CIERRE + CTA FINAL ============ -->
+<section class="cierre" aria-labelledby="h-fin">
+  <div class="wrap">
+    <img class="ene" src="fotos/logorojo.png" alt="" style="width:220px;height:auto">
+    <h2 id="h-fin">Dale a tu cliente fijo una razón para quedarse.</h2>
+    <p class="lead">Ordena a tus clientes fijos, recuérdales que los estás esperando y ofréceles algo mejor que un precio más bajo: la ñapa.</p>
+    <div class="cta-row">
+      <a class="btn btn-main" href="#demo-real">Probar la demo</a>
+      <a class="btn btn-alt" id="btn-contacto" href="#" target="_blank" rel="noopener" hidden>Pedir una demostración</a>
+    </div>
+    <div id="contacto" hidden style="margin-top:28px"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="lg"><img src="fotos/logorojo.png" alt="ÑAPA" width="45" height="78"></div>
+    <p>ÑAPA · La membresía de barrio para barberías y salones. Santa Marta, Colombia (2026).</p>
+    <div class="by"><span>Desarrollado por</span><img src="fotos/logocañaña.png" alt="Agencia Cañaña" width="100" height="34"><span>Agencia Cañaña</span></div>
+  </div>
+</footer>
+
+<div class="mcta" id="mcta"><a class="btn btn-main" href="#demo-real">Probar la demo</a></div>
+
+<script>
+/* =====================================================================
+   CONFIGURACIÓN (lo único que normalmente tendrás que tocar)
+   ===================================================================== */
+/* VIDEO: o dejas el archivo en assets/video-napa.mp4, o pegas aquí el enlace de insertar de YouTube/Vimeo. */
+const VIDEO={
+  mp4:"fotos/video-napa.mp4",
+  poster:"fotos/barberia1.png",
+  embed:""            /* ej.: "https://www.youtube.com/embed/XXXXXXXXXXX" */
+};
+/* TESTIMONIOS: pon true SOLO cuando tengas testimonios reales y llénalos abajo. */
+const MOSTRAR_TESTIMONIOS=false;
+const TESTIMONIOS=[
+  /* {texto:"Lo que dijo el cliente, tal cual.", nombre:"Nombre", negocio:"Barbería X · Barrio Y"} */
+];
+/* CONTACTO: llena el WhatsApp (con indicativo, ej. 573001234567) para activar el botón "Pedir una demostración". */
+const CONTACTO={nombre:"",whatsapp:"",correo:""};
+/* PRECIO de ÑAPA: si quieres mostrarlo en la pregunta "¿Cuánto cuesta?", escríbelo aquí. */
+const PRECIO_NAPA="";
+
+/* =====================================================================
+   Datos de ejemplo de la demo (cada negocio define los suyos en Google Sheets)
+   ===================================================================== */
+const SERVICIOS=[["Corte caballero",15000],["Arreglo de barba",8000],["Corte + barba",20000],["Corte niño",12000],["Cejas",8000],["Corte dama",25000],["Tinte",50000],["Manicure",15000]];
+const PLANES=[
+ {n:"Sin membresía",p:0,t:0,b:0},
+ {n:"Membresía Personal",p:35000,t:15,b:10,cupos:1,txt:"15% en todos tus servicios · 1 familiar o amigo con 10% · Puntos y premios por visita"},
+ {n:"Membresía Familiar",p:60000,t:20,b:15,cupos:3,txt:"20% para ti · 3 familiares o amigos con 15% · Puntos por las visitas de todos"},
+ {n:"Membresía VIP",p:90000,t:25,b:20,cupos:4,txt:"25% para ti · 4 acompañantes con 20% sin límite · Prioridad en agenda · Bebida de cortesía"}
+];
+
+const $=s=>document.querySelector(s), cop=n=>"$"+Math.round(n).toLocaleString("es-CO");
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* --- simulador del hero --- */
+const srv=$("#srv"),pln=$("#pln"),ben=$("#ben");
+SERVICIOS.forEach((s,i)=>srv.add(new Option(s[0]+" ("+cop(s[1])+")",i)));
+PLANES.forEach((p,i)=>pln.add(new Option(p.n,i)));
+pln.value=2;srv.value=2;
+function calc(){
+  const s=SERVICIOS[srv.value],p=PLANES[pln.value];
+  const pct=p.p===0?0:(ben.checked?p.b:p.t);
+  const pagar=s[1]*(100-pct)/100;
+  $("#monto").textContent=cop(pagar);
+  $("#ahorro").textContent=pct?"Ahorra "+cop(s[1]-pagar)+" ("+pct+"%)":"Sin descuento";
+  $("#lista").textContent="Valor de lista: "+cop(s[1]);
+}
+[srv,pln,ben].forEach(e=>e.addEventListener("change",calc));calc();
+
+/* --- tarjetas de planes --- */
+const plansEl=$("#plans");
+PLANES.slice(1).forEach((p,k)=>{
+  const idx=k+1,top=idx===2;
+  const li=p.txt.split(" · ").map(t=>"<li>"+esc(t)+"</li>").join("");
+  const d=document.createElement("article");d.className="plan rv"+(top?" top":"");
+  d.innerHTML=(top?'<span class="flag">EL MÁS ELEGIDO EN LA DEMO</span>':"")+
+    "<h3>"+esc(p.n.replace("Membresía ",""))+"</h3><div class='pr'>"+cop(p.p)+" <small>al mes</small></div>"+
+    "<ul>"+li+"</ul><button type='button' class='btn "+(top?"btn-main":"btn-alt")+"' data-plan='"+idx+"'>Simular este plan</button>";
+  plansEl.appendChild(d);
+});
+plansEl.addEventListener("click",e=>{
+  const b=e.target.closest("[data-plan]");if(!b)return;
+  pln.value=b.dataset.plan;calc();
+  document.getElementById("simulador").scrollIntoView({behavior:"smooth",block:"center"});
+});
+
+/* --- capturas reales: si existe el archivo, reemplaza el ejemplo --- */
+document.querySelectorAll(".shot[data-src]").forEach(f=>{
+  const im=new Image();
+  im.onload=()=>{f.innerHTML="";f.classList.add("has-img");im.alt=f.dataset.alt||"";im.loading="lazy";im.decoding="async";f.appendChild(im)};
+  im.src=f.dataset.src;
+});
+document.querySelectorAll(".ph[data-photo]").forEach(f=>{
+  const im=new Image();
+  im.onload=()=>{im.className="photo";im.alt=f.dataset.alt||"";im.loading="lazy";im.decoding="async";f.innerHTML="";f.appendChild(im)};
+  im.src=f.dataset.photo;
+});
+
+/* --- video: archivo o embed; el placeholder se retira solo --- */
+(function(){
+  const slot=$("#video-slot"),ph=$("#video-ph");
+  if(VIDEO.embed){
+    const i=document.createElement("iframe");i.src=VIDEO.embed;i.title="Video de ÑAPA";i.loading="lazy";
+    i.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen";i.allowFullscreen=true;
+    slot.appendChild(i);ph.remove();return;
+  }
+  const v=document.createElement("video");
+  v.controls=true;v.playsInline=true;v.preload="metadata";v.poster=VIDEO.poster;v.setAttribute("aria-label","Video de ÑAPA");
+  const s=document.createElement("source");s.src=VIDEO.mp4;s.type="video/mp4";v.appendChild(s);
+  v.addEventListener("loadedmetadata",()=>{ph.remove();slot.appendChild(v)});
+  v.style.cssText="position:absolute;inset:0;width:100%;height:100%";
+  slot.appendChild(v);v.style.visibility="hidden";
+  v.addEventListener("loadedmetadata",()=>{v.style.visibility="visible"});
+  s.addEventListener("error",()=>{v.remove()});
+})();
+
+/* --- testimonios (solo reales) --- */
+if(MOSTRAR_TESTIMONIOS&&TESTIMONIOS.length){
+  $("#testimonios").hidden=false;
+  $("#testi-grid").innerHTML=TESTIMONIOS.map(t=>"<figure class='tcard' style='margin:0'><q>"+esc(t.texto)+"</q><figcaption><b>"+esc(t.nombre)+"</b><br><span class='sub'>"+esc(t.negocio||"")+"</span></figcaption></figure>").join("");
+}
+
+/* --- precio opcional --- */
+if(PRECIO_NAPA){const p=document.querySelector("[data-precio]");if(p)p.textContent=PRECIO_NAPA}
+
+/* --- contacto opcional --- */
+if(CONTACTO.whatsapp||CONTACTO.correo){
+  const c=$("#contacto"),btn=$("#btn-contacto");c.hidden=false;btn.hidden=false;
+  const wa=CONTACTO.whatsapp.replace(/\D/g,"");
+  const msg=encodeURIComponent("Hola, quiero ver una demostración de ÑAPA para mi negocio.");
+  c.innerHTML=(CONTACTO.nombre?"<p><strong>"+esc(CONTACTO.nombre)+"</strong></p>":"")+
+    (wa?"<p><a href='https://wa.me/"+wa+"?text="+msg+"'>Escríbenos por WhatsApp</a></p>":"")+
+    (CONTACTO.correo?"<p><a href='mailto:"+esc(CONTACTO.correo)+"'>"+esc(CONTACTO.correo)+"</a></p>":"");
+  btn.href=wa?"https://wa.me/"+wa+"?text="+msg:"mailto:"+CONTACTO.correo;
+}
+
+/* --- aparición suave al hacer scroll --- */
+(function(){
+  const els=document.querySelectorAll(".rv");
+  if(!("IntersectionObserver" in window)){els.forEach(e=>e.classList.add("in"));return}
+  const io=new IntersectionObserver(en=>en.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{rootMargin:"0px 0px -8% 0px"});
+  els.forEach(e=>io.observe(e));
+})();
+
+/* --- botón flotante en móvil: aparece pasado el hero, se oculta en la demo y el cierre --- */
+(function(){
+  const m=$("#mcta"),hero=document.querySelector(".hero");
+  const hide=[document.getElementById("demo-real"),document.querySelector(".cierre")];
+  let past=false,over=new Set();
+  const upd=()=>m.classList.toggle("show",past&&over.size===0);
+  new IntersectionObserver(e=>{past=!e[0].isIntersecting&&e[0].boundingClientRect.top<0;upd()}).observe(hero);
+  const io=new IntersectionObserver(es=>{es.forEach(x=>x.isIntersecting?over.add(x.target):over.delete(x.target));upd()});
+  hide.forEach(h=>h&&io.observe(h));
+})();
+</script>
+</body>
+</html>
